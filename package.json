@@ -1,0 +1,13 @@
+{
+  "name": "java-all",
+  "version": "1.0.0",
+  "main": "java.js",
+  "scripts": {
+    "java": "node --watch java.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "webz (https://github.com/ZMaknickas)",
+  "license": "ISC",
+  "description": ""
+}
