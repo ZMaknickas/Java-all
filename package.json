@@ -4,6 +4,7 @@
   "main": "java.js",
   "scripts": {
     "java": "node --watch java.js",
+    "random": "node --watch random.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -56,7 +56,7 @@ return end;
 };
 
 console.log(kvad(5));
-/*Parašykite funkciją, kuri patikrina, ar du žodžiai yra anagramos*/
+/*2Parašykite funkciją, kuri patikrina, ar du žodžiai yra anagramos*/
 
 function anagr(a, b) {
 let bb=b.split('')
@@ -65,14 +65,19 @@ return false;
 for (let i=0; i<=b.length; i++) 
 if (b.includes(a[i]))
 return true;
+else return false;
 };
 console.log(anagr('pilkas', 'plikas'));
 
 /*3 Parašykite funkciją, kuri pašalina dublikatus iš masyvo.*/
-function dubl(k) {
-return k;
+function dupl(a) {
+a1 = a.filter((item, index) => a.indexOf(item) === index);
+return a1;
 }
-console.log(dubl(2,3,4,2,5,2))
+console.log(dupl([2,3,2,5,3,8,3,5,6]));
+console.log('-----------------');
+console.log(dupl([2,3,4,2,5,2]));
+console.log('---------------');
 
 let keleivis= {name: "Maryte",
     age: 34,
@@ -89,7 +94,7 @@ function min(...list) {
     }
     console.log(min('c', 'd',4,5,6))
 
-/*4.*/
+/*4.Funkcija, kuri grazina pirma pasikartojanti elementa masyve*/
 function kartojasi(m) {
 for (let i=0; i<=m.length; i++)
 if (m[i]===m[i+1])
@@ -173,3 +178,294 @@ result.push(o[i])
 return result;
 }
 console.log(lyg([2,3,4,5,6,7,8,9]));
+
+/*12*/
+
+function maks(m) {
+let did=Math.max(...m);
+return did;
+}
+console.log(maks([2,5,3,8,23,56,76,32,45,21,16,4,3,45,33,21]));
+
+/*13.*/
+
+function vid(mark) {
+const average=Math.round(mark.reduce((total, n)=>total+n)/mark.length);
+return average;
+};
+console.log(vid([2,5,3,8,23,56,76,32,45,21,16,4,3,45,33,21]));
+
+/*14.*/
+function dub(ax) {
+let result=[];
+for (let i=0; i<ax.length; i++)
+result.push(ax[i]*2)
+return result;
+}
+console.log(dub([2,5,3,8,23,56,76,32,45,21,16,4,3,45,33,21]));
+
+/*15*/
+function up(txt) {
+let changed=[];
+let up=0;
+for (let i=0; i<txt.length; i++){
+up=txt[i].slice(0,1).toUpperCase()+txt[i].slice(1);
+changed.push(up);
+}
+return changed;
+}
+console.log(up(['rytas', 'vakaras', 'diena']));
+
+/*16.*/ 
+function balses(tex) {
+let rai='aeiouy';
+let count=0;
+for (let i=0; i<tex.length; i++){
+if (rai.includes(tex[i]))
+count++;}
+return count;
+}
+console.log(balses('Laba diena graziausiam kiemui'));
+/*17. apversti masyva be reverse*/
+function  apv(ar) {
+let result=[];
+for (let i=ar.length-1; i>=0; i--)
+result.push(ar[i]);
+return result;
+}
+console.log(apv([1,2,3,4,5]));
+
+/*18 patikrinti ar masyvas lygus is abieju galu*/
+function bta(m) {
+let result=[];
+for (let i=m.length-1; i>=0; i--){
+result.push(m[i])}
+if (m===result)
+return true;
+else return result;
+} 
+console.log(bta([1,2, 3,1]));
+
+/*19 atsitiktinis skaicius tarp min ir max*/
+function random(a,b) {
+return Math.floor(Math.random() * (b-a)) + a;
+}
+console.log(random(14, 22));
+
+/*20 ar visi masyvo elementai yra unikalus*/
+/*21 parasyti funkcija ar masyvas dideja*/
+function dideja(h) {
+let last=0;
+let end=[];
+for (let i = 0; i < h.length; i++){
+if (h[i]<h[i+1])
+last=h[i+1]
+end.push(last)}
+console.log(end);
+if (last===h[h.length-1])
+return true;
+else return false;
+}
+console.log(dideja([1,2,3,4,1]));
+/*22.zodziu kiekis sak.*/
+function zodziu(sak) {
+let count=0;
+for (const l of sak){
+if (l===' ')
+count++
+}
+return count+1;
+}
+console.log(zodziu('Sauletekyje gyvena daug studentu ir juoduku'));
+
+/*23 mazejancia tvarka*/
+function mazeja(l) {
+return l.sort((a, b)=> b-a);
+}
+console.log(mazeja([2,5,7,1,9]))
+
+/*24 pakeisti visus simbolius * issk 4.*/
+function asterisk(text){
+let result=''
+let k=text.length;
+let last=text.slice(k-4, k); 
+console.log(last);
+let zv=text.length-4;
+for (let i=0; i<=zv; i++){
+result+='*'}
+return result+last;
+}
+console.log(asterisk('Pagavau zuvele'));
+
+/*25.skirtumas tarp datu dienomis.*/
+function dienomis (a,b){
+let meta=a.slice(0, 4)
+let metb=b.slice(0, 4)
+let ma=0;
+let mb=0;
+let da=0;
+let db=0;
+let mendienos=0;
+let ya=a.slice(0,4);
+let yb=b.slice(0,4);
+if (a.slice(5,6)==='0')
+ma=a.slice(6,7);
+else ma=a.slice(5,7)
+if (b.slice(5,6)==='0')
+    mb=b.slice(6,7);
+else mb=b.slice(5,7)
+if (a.slice(8,9)==='0')
+    da=a.slice(9,10);
+    else a=a.slice(8,10)
+    if (b.slice(8,9)==='0')
+        db=b.slice(9,10);
+    else db=b.slice(8,10)
+return (yb-ya)*365+(mb-ma)*30+db-da;
+}
+console.log(dienomis('2025/01/01', '2025/01/04'))
+
+/*26 konvertuoja pirma raide i didziaja, jei ji buvo mazoji*/
+function pirmaraide(sakinys) {
+let pirma='abcdefghijklmnopqrstuvxyz';
+if (pirma.includes(sakinys[0]))
+return sakinys[0].toUpperCase()+sakinys.slice(1,sakinys.length)
+else return 'pirma jau didzioji-'+sakinys;
+}
+console.log(pirmaraide('Vasara'));
+
+// 7. Remove all digits from a string
+  function removeDigits(str) {
+   return str.replace(/[0-9]/g, '');
+  }
+
+  console.log (removeDigits("viens1 du2 trys3!"))
+  
+  // 8. Extract only letters from a string
+  function onlyLetters(str) {
+    return str.replace(/[^a-zA-Z]/g,'');
+  }
+  
+  console.log(onlyLetters("Apelsinas,1234!"))
+
+/*27 kiek sakinyje yra zodziu bet 5 raidziu*/
+function valid(sak) {
+let sak2=sak.split(' ');
+let count=0;
+for (const el of sak2){
+if(el.length>=5)
+count++}
+return count;
+}
+console.log(valid('Sveiki, kaip jauciates del mokymosi ?'));
+/*28 grazina skaiciu masyva nuo start iki end.*/
+function masyvas(start,end) {
+let result=[];
+for (let i=0; i<end-start+1; i++) {
+result.push(start+i)
+}
+return result;
+}
+console.log(masyvas(-5,7));
+console.log(masyvas(5,7));
+/*29 antras did skaicius masyve*/
+function antras(mas) {
+let mas2=mas.sort((a,b)=>a-b)
+return mas2[mas.length-2]
+}
+console.log(antras([1,2,3,4,2,4,5,87,6,6,56,100]))
+/*30 sekundes i hh:mm:ss formata;*/
+function format(sekundes) {
+let val=Math.floor(sekundes/3600);
+let min=Math.floor((sekundes-val*3600)/60);
+let s=sekundes-val*3600-min*60;
+if (val===0 && min===0 && s<10)
+return '00:00:0'+s;
+if (val===0 && min===0 && s>=10)
+return '00:00:'+s;
+if (val===0 && min<10 && s<10)
+return '00:0'+min+':0'+s;
+if (val===0 && min<=10 && s>=10)
+return '00:0'+min+':'+s;    
+if (val===0 && min>10 && s>=10)
+return '00:'+min+':'+s;
+if (val<10 && min<10 && s<10)
+return '0'+val+':0'+min+':0'+s;
+if (val<10 && min>=10 && s<10)
+return '0'+val+':'+min+':0'+s;
+if (val<10 && min>=10 && s>=10)
+return '0'+val+':'+min+':'+s;
+if (val<10 && min<10 && s>=10)
+return '0'+val+':0'+min+':'+s;
+if (val>=10 && min<10 && s<10)
+return val+':0'+min+':0'+s;
+if (val>=10 && min>=10 && s<10)
+return val+':'+min+':0'+s;
+if (val>=10 && min>=10 && s>=10)
+return val+':'+min+':'+s;
+if (val>=10 && min<10 && s>=10)
+return val+':0'+min+':'+s;
+}
+console.log('~~~~~~~~~~~~~~~~~')
+console.log(format(2133333))
+/*36 parasykite funkcija, kuri apskaičiuoja teigiamu sk suma.*/
+function teig(mast){
+let sum=0;
+for (let i=0; i<mast.length; i++) {
+if (mast[i]>0)
+sum+=mast[i]
+}
+return sum;
+}
+console.log(teig([2,5,-6, ,3,-5]));
+/*31*/
+function kiek(str, a) {
+let count=0;
+for (let i=0; i<str.length; i++) {
+if (str[i]===a)
+count++;}
+return count;
+}
+console.log(kiek('paprastai dirbu anksti', 'p'));
+/*32*/
+function aktyvus(car) {
+return car;
+}
+
+console.log(aktyvus({
+pavadinimas: 'Fiat',
+starts: true,
+hasfuel: true,
+color: 'white',
+hasEngine: true,
+}));
+
+/*33*/
+
+function reiksme(vat) {
+let sum=0;
+for (const sk of vat) 
+if (sk<0)
+sum+=1;
+if (sum>0)
+return sum+' true';
+else return false;
+}
+console.log(reiksme([0, 2, -4, -2, 6, 4]));
+
+/*34.slug formatas*/
+function konvert(st) {
+let k='';    
+for (let i=0; i<st.length; i++) 
+k+=st[i].toLowerCase();
+return k.replaceAll(' ', '-');
+}
+console.log(konvert('Mes ejom ejom sirdi skaudejo'));
+
+/*35 ar stringas baigiasi nurodytu tekstu*/
+function pab(a,b) {
+let pak=a.slice(a.length-b.length, a.length);
+if (pak===b)
+return  true;
+else return false;
+}
+console.log(pab('antradienis','dienis'));
